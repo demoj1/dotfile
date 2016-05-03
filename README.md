@@ -1,4 +1,4 @@
-# VS Code
+# VS Code user settings
 ```
 {
     "go.buildOnSave": true,
@@ -25,4 +25,11 @@
     "editor.scrollBeyondLastLine": false,
     "files.trimTrailingWhitespace": true
 }
+```
+# VS Code keybindings
+```
+[
+    { "key": "ctrl+r",               "command": "editor.action.marker.next",
+                                     "when": "editorFocus" }
+]
 ```
