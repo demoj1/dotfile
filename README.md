@@ -33,3 +33,41 @@
                                      "when": "editorFocus" }
 ]
 ```
+# Docker-compose restart and git pulling
+```
+#!/bin/bash
+
+localPATH=`pwd`
+bg_green=$(tput setab 2)
+bg_red=$(tput setab 1)
+bg_res=$(tput sgr 0)
+
+# Git repositoires paths.
+# In ecah directory must be
+# installed git upstream.
+repo[0]=/catalog/repo
+
+# Git pull.
+for path in "${repo[@]}"
+do
+        current_path=$localPATH$path
+        txt_len=${#current_path}
+        ok_len=$(expr $(tput cols) - $txt_len + 4)
+        err_len=$(expr $(tput cols) - $txt_len + 6)
+
+        echo "Git pull from ${current_path}..."
+
+        git -C $current_path pull
+        if [ $? -eq 0 ]
+        then
+                printf '%s%*s\n' $current_path $ok_len "${bg_green}[OK]${bg_res}"
+        else
+                printf '%s%*s\n' $current_path $err_len "${bg_red}[FAIL]${bg_res}"
+        fi
+done
+
+# Docker restart.
+docker-compose down
+docker-compose build
+docker-compose up -d
+```
