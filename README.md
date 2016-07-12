@@ -60,14 +60,14 @@ do
         git -C $current_path pull
         if [ $? -eq 0 ]
         then
-                printf '%s%*s\n' $current_path $ok_len "${bg_green}[OK]${bg_res}"
+                printf '%s%*s\n' "${bg_green}${current_path}${bg_res}" "${ok_len}" "${bg_green}[OK]${bg_res}"
         else
-                printf '%s%*s\n' $current_path $err_len "${bg_red}[FAIL]${bg_res}"
+                printf '%s%*s\n' "${bg_red}${current_path}${gb_res}" $err_len "${bg_red}[FAIL]${bg_res}"
         fi
 done
 
 # Docker restart.
+docker-compose build 1> /dev/null
 docker-compose down
-docker-compose build
 docker-compose up -d
 ```
