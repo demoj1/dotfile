@@ -90,7 +90,7 @@ docker-compose down
 docker-compose up -d
 ```
 
-Vim
+# Vim
 ```vim
 map <F1> <NOP>
 imap <F1> <NOP>
