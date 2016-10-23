@@ -4,26 +4,44 @@
     "go.buildOnSave": true,
     "go.lintOnSave": true,
     "go.vetOnSave": true,
-    "go.buildFlags": [],
-    "go.lintFlags": [],
-    "go.vetFlags": [],
-    "go.coverOnSave": false,
+    "go.coverOnSave": true,
     "go.useCodeSnippetsOnFunctionSuggest": true,
     "go.formatOnSave": true,
     "go.formatTool": "goreturns",
     "go.gocodeAutoBuild": true,
 
+    "rust.formatOnSave": true, // Turn on/off autoformatting file on save (EXPERIMENTAL)
+    "rust.checkOnSave": true, // Turn on/off `cargo check` project on save (EXPERIMENTAL)
+    "rust.checkWith": "build", // Specifies the linter to use. (EXPERIMENTAL)
+
     "editor.cursorStyle": "line",
     "editor.renderWhitespace": true,
 
-    "editor.fontFamily": "Fira Code",
+    "editor.fontFamily": "Consolas",
     "editor.fontLigatures": true,
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
 
     "editor.mouseWheelScrollSensitivity": 5,
-    "editor.roundedSelection": false,
+    "editor.roundedSelection": true,
     "editor.scrollBeyondLastLine": false,
-    "files.trimTrailingWhitespace": true
+    "files.trimTrailingWhitespace": true,
+
+    "editor.tabSize": 8,
+    "editor.insertSpaces": false,
+    "editor.wrappingColumn": 80,
+    "editor.rulers": [
+        80
+    ],
+    "editor.formatOnType": true,
+
+    "files.associations": {
+        "*.tpl": "html"
+    },
+
+    "omnisharp.path": "/home/dmr/downloads/omnisharp-ubuntu14-x64-netcoreapp1.0/OmniSharp",
+
+    "projectManager.projectsLocation": "/home/dmr/go/src",
+    "window.reopenFolders": "all"
 }
 ```
 # VS Code keybindings
