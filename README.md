@@ -235,7 +235,6 @@ current_path = sys.argv[1]
 # find ve dir
 dirs = os.listdir(current_path)
 
-ve_path = ''
 for dir in dirs:
     if dir[-3:] == '-ve':
         print(dir)
