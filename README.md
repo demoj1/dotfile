@@ -149,7 +149,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs=1
 "
-" Whitespace
+#" Whitespace
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
 :set list
 
@@ -201,4 +201,42 @@ let g:tagbar_compact=1
 " KeyMap for easymotion
 map <F1> <Plug>(easymotion-overwin-f2)
 imap <F1> <Plug>(easymotion-overwin-f2)   
+```
+
+# Auto activate virtualenv
+```bash
+cd() {
+    ve_path=$(find_ve $(pwd)/$1)
+    if [[ -z $ve_path ]]; then
+        if [[ -n $VIRTUAL_ENV ]]; then
+            deactivate
+        fi
+
+        builtin cd "$1"
+        return
+    fi
+
+    builtin cd "$1"
+    source $ve_path/bin/activate
+}
+```
+
+```python
+#!/usr/bin/python
+
+import sys
+import os
+
+if len(sys.argv) < 2:
+    sys.exit(1)
+
+current_path = sys.argv[1]
+
+# find ve dir
+dirs = os.listdir(current_path)
+
+ve_path = ''
+for dir in dirs:
+    if dir[-3:] == '-ve':
+        print(dir)
 ```
