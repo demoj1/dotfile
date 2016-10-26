@@ -207,17 +207,18 @@ imap <F1> <Plug>(easymotion-overwin-f2)
 ```bash
 cd() {
     ve_path=$(find_ve $(pwd)/$1)
-    if [[ -z $ve_path ]]; then
-        if [[ -n $VIRTUAL_ENV ]]; then
-            deactivate
-        fi
+    stat=$?
+    if [ $stat -eq 3 ]; then
+        export __ROOT_VE_PATH=$ve_path
+        source $__ROOT_VE_PATH/*-ve/bin/activate
+    fi
 
-        builtin cd "$1"
-        return
+    if [ $stat -eq 4 ]; then
+        unset __ROOT_VE_PATH
+        deactivate
     fi
 
     builtin cd "$1"
-    source $ve_path/bin/activate
 }
 ```
 
@@ -227,15 +228,36 @@ cd() {
 import sys
 import os
 
+# Code 1 - error
+# Code 2 - pass
+# Code 3 - activate
+# Code 4 - deactivate
+
+def get_ve_dir(path):
+    dirs = os.listdir(path)
+
+    for dir in dirs:
+        if dir[-3:] == '-ve':
+            return dir
+
+    return None
+
+
 if len(sys.argv) < 2:
     sys.exit(1)
 
-current_path = sys.argv[1]
+current_path = os.path.abspath(sys.argv[1])
+ve_dir = get_ve_dir(current_path)
 
-# find ve dir
-dirs = os.listdir(current_path)
+if ve_dir and '__ROOT_VE_PATH' not in os.environ:
+    print(current_path)
+    sys.exit(3)
 
-for dir in dirs:
-    if dir[-3:] == '-ve':
-        print(dir)
+if '__ROOT_VE_PATH' not in os.environ:
+    sys.exit(2)
+
+if os.environ['__ROOT_VE_PATH'] not in os.path.abspath(current_path):
+    sys.exit(4)
+
+sys.exit(2)
 ```
