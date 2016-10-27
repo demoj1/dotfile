@@ -159,6 +159,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs=1
+let g:syntastic_loc_list_height = 3
 "
 " Whitespace
 :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
@@ -229,7 +230,7 @@ let g:python_host_prog="/usr/bin/python3"
 let g:ctrlp_custom_ignore = {
             \ 'dir': '__pycache__',
             \ 'file': '*pyc'
-            \ } 
+            \ }
 ```
 
 # Auto activate virtualenv
