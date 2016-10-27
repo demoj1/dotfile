@@ -102,10 +102,10 @@ call plug#begin("~/.vim/plugged")
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'scrooloose/nerdtree'
+"    Plug 'scrooloose/nerdtree'
     Plug 'ervandew/supertab'
     Plug 'majutsushi/tagbar'
-    Plug 'easymotion/vim-easymotion'
+"    Plug 'easymotion/vim-easymotion'
     Plug 'scrooloose/syntastic'
     Plug 'gregsexton/gitv'
     Plug 'fatih/vim-go'
@@ -113,6 +113,8 @@ call plug#begin("~/.vim/plugged")
     Plug 'nvie/vim-flake8'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
+    Plug 'kien/ctrlp.vim'
+    Plug 't9md/vim-choosewin'
 call plug#end()
 " ==============
 
@@ -210,14 +212,24 @@ map <F2> :NERDTreeToggle<CR>
 " KeyMap for tagbar
 map <F3> :Tagbar<CR>
 
+" KeyMap for choosewin
+nmap <C-w> <Plug>(choosewin)
+
 " TagBar settings
 let g:tagbar_left = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact=1
 
-" KeyMap for easymotion
-map <BSlash> <Plug>(easymotion-overwin-f2)
-let g:python_host_prog="/usr/bin/python3" 
+" Choosewin settings
+let g:choosewin_overlay_enable = 1
+
+let g:python_host_prog="/usr/bin/python3"
+
+" ctrlp ignore pycache files
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '__pycache__',
+            \ 'file': '*pyc'
+            \ } 
 ```
 
 # Auto activate virtualenv
