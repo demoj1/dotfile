@@ -22,6 +22,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'kien/ctrlp.vim'
     Plug 't9md/vim-choosewin'
     Plug 'mhinz/vim-startify'
+    Plug 'josuegaleas/jay'
 call plug#end()
 " ==============
 
@@ -87,7 +88,7 @@ let g:syntastic_python_checkers = ['pep8']
 set backspace=2
 
 syntax on
-colorscheme atom-dark-256
+colorscheme jay
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
