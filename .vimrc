@@ -20,9 +20,12 @@ call plug#begin("~/.vim/plugged")
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
     Plug 'kien/ctrlp.vim'
+    Plug 'tacahiroy/ctrlp-funky'
     Plug 't9md/vim-choosewin'
     Plug 'mhinz/vim-startify'
     Plug 'josuegaleas/jay'
+    Plug 'zchee/deoplete-go'
+    Plug 'justmao945/vim-clang'
 call plug#end()
 " ==============
 
@@ -88,7 +91,7 @@ let g:syntastic_python_checkers = ['pep8']
 set backspace=2
 
 syntax on
-colorscheme jay
+colorscheme atom-dark-256
 
 filetype plugin indent on
 " show existing tab with 4 spaces width
@@ -102,18 +105,28 @@ set expandtab
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
+" Keymap for shift p search for tag
+nmap <S-p> :CtrlPFunky<cr>
+
 " Keymap tab
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_working_path_mode = 'a'
+
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
+
+" Keymap ctrl+s save file
+nmap <C-s> :w!<cr>
+imap <C-s> <esc>:w!<cr>
 
 " KeyMap for multicursor
 let g:multi_cursor_next_key='<C-d>'
 
 " KeyMap for navigate tab
-map <C-Right> :tabnext<CR>
-map <C-Left> :tabprevious<CR>
-map <C-Down> :tabclose<CR>
-map <C-Up> :tabnew<CR>
+nmap <C-Right> :tabnext<CR>
+nmap <C-Left> :tabprevious<CR>
+nmap <C-Down> :tabclose<CR>
+nmap <C-Up> :tabnew<CR>
 
 " KeyMap for nerdtree
 map <F2> :NERDTreeToggle<CR>
