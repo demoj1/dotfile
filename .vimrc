@@ -23,9 +23,10 @@ call plug#begin("~/.vim/plugged")
     Plug 'tacahiroy/ctrlp-funky'
     Plug 't9md/vim-choosewin'
     Plug 'mhinz/vim-startify'
-    Plug 'josuegaleas/jay'
+"    Plug 'josuegaleas/jay'
     Plug 'zchee/deoplete-go'
     Plug 'justmao945/vim-clang'
+    Plug 'alvan/vim-closetag'
 call plug#end()
 " ==============
 
