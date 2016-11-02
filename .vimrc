@@ -8,7 +8,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
     Plug 'terryma/vim-multiple-cursors'
-"    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
     Plug 'ervandew/supertab'
     Plug 'majutsushi/tagbar'
 "    Plug 'easymotion/vim-easymotion'
@@ -41,7 +41,7 @@ filetype plugin indent on
 
 let g:go_fmt_command = "goimports"
 
-" set number
+" stop omnifunc
 set omnifunc=
 
 " Highlight
@@ -73,7 +73,7 @@ let g:syntastic_enable_signs=1
 let g:syntastic_loc_list_height = 3
 "
 " Whitespace
-:set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<
+:set listchars=eol:¬,tab:.\ ,trail:~,extends:>,precedes:<
 :set list
 
 " Syntastic statusline
@@ -107,6 +107,7 @@ let g:airline_right_sep=''
 
 " Keymap for shift p search for tag
 nmap <S-p> :CtrlPFunky<cr>
+let g:ctrlp_funky_syntax_highlight = 1
 
 " Keymap tab
 let g:ctrlp_cmd = 'CtrlPMixed'
