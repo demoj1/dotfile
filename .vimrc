@@ -27,6 +27,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'zchee/deoplete-go'
     Plug 'justmao945/vim-clang'
     Plug 'alvan/vim-closetag'
+    Plug 'vim-scripts/tComment'
 call plug#end()
 " ==============
 
@@ -36,6 +37,7 @@ let g:deoplete#auto_complete_delay = 1
 let g:deoplete#auto_complete_start_length = 2
 let g:deoplete#enable_ignore_case = 1
 
+set number
 
 syntax on
 filetype plugin indent on
@@ -46,7 +48,7 @@ let g:go_fmt_command = "goimports"
 set omnifunc=
 
 " Highlight
-let g:go_highlight_functions = 1
+let g:ro_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
@@ -154,3 +156,10 @@ let g:ctrlp_custom_ignore = {
             \ 'dir': '__pycache__',
             \ 'file': '*pyc'
             \ }
+
+" Block folding settings
+set foldenable
+set foldnestmax=1
+set foldlevel=1
+set foldmethod=indent
+" set foldopen=all
