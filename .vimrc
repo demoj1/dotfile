@@ -37,15 +37,10 @@ let g:deoplete#auto_complete_delay = 1
 let g:deoplete#auto_complete_start_length = 2
 let g:deoplete#enable_ignore_case = 1
 
-set number
-
 syntax on
 filetype plugin indent on
 
 let g:go_fmt_command = "goimports"
-
-" stop omnifunc
-set omnifunc=
 
 " Highlight
 let g:ro_highlight_functions = 1
@@ -58,8 +53,6 @@ let g:go_highlight_build_constraints = 1
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 1
 let g:go_get_update = 1
-
-set completeopt=longest,menuone
 
 let g:SuperTabDefaultCompletionType = "<C-n>"
 
@@ -75,34 +68,16 @@ let g:syntastic_check_on_wq = 1
 let g:syntastic_enable_signs=1
 let g:syntastic_loc_list_height = 3
 "
-" Whitespace
-:set listchars=eol:¬,tab:.\ ,trail:~,extends:>,precedes:<
-:set list
-
-" Syntastic statusline
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 " Jedi configure
 let g:jedi#show_call_signatures = "0"
 
 " SynaxChecker configure
 let g:syntastic_python_checkers = ['pep8']
 
-" Backspace fix
-set backspace=2
-
 syntax on
 colorscheme atom-dark-256
 
 filetype plugin indent on
-" show existing tab with 4 spaces width
-set tabstop=4
-" when indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
-set expandtab
 
 " Don't show seperators
 let g:airline_left_sep=''
@@ -162,4 +137,23 @@ set foldenable
 set foldnestmax=1
 set foldlevel=1
 set foldmethod=indent
-" set foldopen=all
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+" Whitespace
+set listchars=eol:¬,tab:.\ ,trail:~,extends:>,precedes:<
+set list
+
+" Syntastic statusline
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+set number
+
+" stop omnifunc
+set omnifunc=
+
+set completeopt=longest,menuone
