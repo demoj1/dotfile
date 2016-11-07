@@ -18,8 +18,10 @@ call plug#begin("~/.vim/plugged")
     Plug 'mkitt/tabline.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-    Plug 'kien/ctrlp.vim'
-    Plug 'tacahiroy/ctrlp-funky'
+"    Plug 'kien/ctrlp.vim'
+"    Plug 'tacahiroy/ctrlp-funky'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
     Plug 't9md/vim-choosewin'
     Plug 'mhinz/vim-startify'
 "    Plug 'josuegaleas/jay'
@@ -94,12 +96,13 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 " Keymap for shift p search for tag
-nmap <S-p> :CtrlPFunky<cr>
-let g:ctrlp_funky_syntax_highlight = 1
+nmap <C-p> :Files<cr>
+nmap <S-p> :BTags<cr>
+" let g:ctrlp_funky_syntax_highlight = 1
 
 " Keymap tab
-let g:ctrlp_cmd = 'CtrlPMixed'
-let g:ctrlp_working_path_mode = 'a'
+" let g:ctrlp_cmd = 'CtrlPMixed'
+" let g:ctrlp_working_path_mode = 'a'
 
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
