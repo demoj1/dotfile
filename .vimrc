@@ -11,26 +11,23 @@ call plug#begin("~/.vim/plugged")
     Plug 'scrooloose/nerdtree'
     Plug 'ervandew/supertab'
     Plug 'majutsushi/tagbar'
-"    Plug 'easymotion/vim-easymotion'
     Plug 'scrooloose/syntastic'
     Plug 'gregsexton/gitv'
     Plug 'fatih/vim-go'
     Plug 'mkitt/tabline.vim'
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi'
-"    Plug 'kien/ctrlp.vim'
-"    Plug 'tacahiroy/ctrlp-funky'
-	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-	Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
     Plug 't9md/vim-choosewin'
     Plug 'mhinz/vim-startify'
-"    Plug 'josuegaleas/jay'
     Plug 'zchee/deoplete-go'
     Plug 'justmao945/vim-clang'
     Plug 'alvan/vim-closetag'
     Plug 'vim-scripts/tComment'
     Plug 'eagletmt/neco-ghc'
     Plug 'neovimhaskell/haskell-vim'
+    Plug 'gosukiwi/vim-atom-dark'
     Plug 'fsharp/vim-fsharp', {
       \ 'for': 'fsharp',
       \ 'do':  'make fsautocomplete',
@@ -96,7 +93,8 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 
 " Keymap for shift p search for tag
-nmap <C-p> :Files<cr>
+nmap <C-p> :GitFiles<cr>
+nmap <C-g> :BCommits<cr>
 nmap <S-p> :BTags<cr>
 " let g:ctrlp_funky_syntax_highlight = 1
 
@@ -164,8 +162,6 @@ set list
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-set number
 
 " stop omnifunc
 set omnifunc=
