@@ -28,6 +28,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'eagletmt/neco-ghc'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'gosukiwi/vim-atom-dark'
+    Plug 'tpope/vim-fugitive'
     Plug 'fsharp/vim-fsharp', {
       \ 'for': 'fsharp',
       \ 'do':  'make fsautocomplete',
