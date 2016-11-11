@@ -29,6 +29,9 @@ call plug#begin("~/.vim/plugged")
     Plug 'neovimhaskell/haskell-vim'
     Plug 'gosukiwi/vim-atom-dark'
     Plug 'tpope/vim-fugitive'
+    Plug 'yalesov/vim-ember-script'
+    Plug 'nono/vim-handlebars'
+    Plug 'zaiste/tmux.vim'
     Plug 'fsharp/vim-fsharp', {
       \ 'for': 'fsharp',
       \ 'do':  'make fsautocomplete',
@@ -144,6 +147,8 @@ let g:ctrlp_custom_ignore = {
             \ 'dir': '__pycache__',
             \ 'file': '*pyc'
             \ }
+
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Block folding settings
 set foldenable
