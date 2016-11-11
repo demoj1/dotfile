@@ -1,8 +1,5 @@
 silent! $s/\s\+$//
 
-map <F1> <NOP>
-imap <F1> <NOP>
-
 " Plugin install
 call plug#begin("~/.vim/plugged")
     Plug 'airblade/vim-gitgutter'
@@ -10,7 +7,6 @@ call plug#begin("~/.vim/plugged")
     Plug 'terryma/vim-multiple-cursors'
     Plug 'scrooloose/nerdtree'
     Plug 'ervandew/supertab'
-    Plug 'majutsushi/tagbar'
     Plug 'scrooloose/syntastic'
     Plug 'gregsexton/gitv'
     Plug 'fatih/vim-go'
@@ -29,13 +25,42 @@ call plug#begin("~/.vim/plugged")
     Plug 'neovimhaskell/haskell-vim'
     Plug 'gosukiwi/vim-atom-dark'
     Plug 'tpope/vim-fugitive'
-    Plug 'fsharp/vim-fsharp', {
-      \ 'for': 'fsharp',
-      \ 'do':  'make fsautocomplete',
-      \}
-    Plug 'kongo2002/fsharp-vim'
 call plug#end()
 " ==============
+
+syntax on
+filetype plugin indent on
+
+" ====================================KEY SETTINGS====================
+map <F1> <NOP>
+imap <F1> <NOP>
+nmap s <NOP>
+
+tnoremap <Esc> <C-\><C-n>
+
+nmap <C-p> :GitFiles<cr>
+nmap <C-g> :BCommits<cr>
+nmap <S-p> :BTags<cr>
+
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-d>
+
+let g:multi_cursor_next_key='<C-d>'
+
+nnoremap tc :tabclose<CR>
+nnoremap tn :tabnew<CR>
+
+nnoremap sv  :vsplit<CR>
+nnoremap sh  :split<CR>
+nnoremap sx  :wq!<CR>
+nnoremap sk  :q!<CR>
+
+map <F2> :NERDTreeToggle<CR>
+map <F3> :Tagbar<CR>
+
+" KeyMap for choosewin
+nnoremap ww :ChooseWin<CR>
+" ====================================PLUGIN SETTINGS====================
 
 " Haskell complete settings
 let g:necoghc_enable_detailed_browse = 1
@@ -46,10 +71,6 @@ let g:deoplete#auto_complete_delay = 1
 let g:deoplete#auto_complete_start_length = 2
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#max_menu_width=120
-
-
-syntax on
-filetype plugin indent on
 
 let g:go_fmt_command = "goimports"
 
@@ -93,48 +114,13 @@ filetype plugin indent on
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 
-" Keymap for shift p search for tag
-nmap <C-p> :GitFiles<cr>
-nmap <C-g> :BCommits<cr>
-nmap <S-p> :BTags<cr>
-" let g:ctrlp_funky_syntax_highlight = 1
-
-" Keymap tab
-" let g:ctrlp_cmd = 'CtrlPMixed'
-" let g:ctrlp_working_path_mode = 'a'
-
-nnoremap <S-Tab> <<
-inoremap <S-Tab> <C-d>
-
-" Keymap ctrl+s save file
-nmap <C-s> :w!<cr>
-imap <C-s> <esc>:w!<cr>
-
-" KeyMap for multicursor
-let g:multi_cursor_next_key='<C-d>'
-
-" KeyMap for navigate tab
-nmap <C-Right> :tabnext<CR>
-nmap <C-Left> :tabprevious<CR>
-nmap <C-Down> :tabclose<CR>
-nmap <C-Up> :tabnew<CR>
-
-" KeyMap for nerdtree
-map <F2> :NERDTreeToggle<CR>
-
-" KeyMap for tagbar
-map <F3> :Tagbar<CR>
-
-" KeyMap for choosewin
-nmap <C-w> <Plug>(choosewin)
-
 " TagBar settings
 let g:tagbar_left = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact=1
 
 " Choosewin settings
-let g:choosewin_overlay_enable = 1
+let g:choosewin_overlay_enable = 0
 
 let g:python3_host_prog="/usr/bin/python3"
 let g:python_host_prog="/usr/bin/python2.7"
