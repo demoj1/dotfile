@@ -27,7 +27,6 @@ call plug#begin("~/.vim/plugged")
     Plug 'tpope/vim-fugitive'
     Plug 'yalesov/vim-ember-script'
     Plug 'nono/vim-handlebars'
-    Plug 'zaiste/tmux.vim'
 call plug#end()
 " ==============
 
@@ -38,12 +37,12 @@ filetype plugin indent on
 map <F1> <NOP>
 imap <F1> <NOP>
 nmap s <NOP>
+let g:ctrlp_map = '<NOP>'
 
-tnoremap <Esc> <C-\><C-n>
+tnoremap <S-q><Esc> <C-\><C-n>
 
-nmap <C-p> :GitFiles<cr>
-nmap <C-g> :BCommits<cr>
-nmap <S-p> :BTags<cr>
+noremap <C-p> :Files<CR>
+noremap <S-p> :BTags<CR>
 
 nnoremap <S-Tab> <<
 inoremap <S-Tab> <C-d>
@@ -62,7 +61,7 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :Tagbar<CR>
 
 " KeyMap for choosewin
-nnoremap ww :ChooseWin<CR>
+noremap <S-w> :W<CR>
 " ====================================PLUGIN SETTINGS====================
 
 " Haskell complete settings
@@ -129,6 +128,9 @@ let g:python3_host_prog="/usr/bin/python3"
 let g:python_host_prog="/usr/bin/python2.7"
 
 " ctrlp ignore pycache files
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_reuse_window = 'startify'
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_custom_ignore = {
             \ 'dir': '__pycache__',
             \ 'file': '*pyc'
