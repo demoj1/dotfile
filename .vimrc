@@ -27,6 +27,17 @@ call plug#begin("~/.vim/plugged")
     Plug 'tpope/vim-fugitive'
     Plug 'yalesov/vim-ember-script'
     Plug 'nono/vim-handlebars'
+    Plug 'mxw/vim-jsx'
+    Plug 'elzr/vim-json'
+    Plug 'pangloss/vim-javascript'
+    Plug 'morhetz/gruvbox'
+    Plug 'honza/vim-snippets'
+    Plug 'SirVer/ultisnips'
+    Plug 'drmingdrmer/xptemplate'
+    Plug 'moll/vim-node'
+    Plug 'pangloss/vim-javascript'
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+    Plug 'sheerun/vim-polyglot'
 call plug#end()
 " ==============
 
@@ -61,8 +72,24 @@ map <F2> :NERDTreeToggle<CR>
 map <F3> :Tagbar<CR>
 
 " KeyMap for choosewin
-noremap <S-w> :W<CR>
+noremap <S-w> :ChooseWin<CR>
 " ====================================PLUGIN SETTINGS====================
+let g:tern_request_timeout = 1
+
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 " Haskell complete settings
 let g:necoghc_enable_detailed_browse = 1
@@ -139,10 +166,10 @@ let g:ctrlp_custom_ignore = {
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " Block folding settings
-set foldenable
-set foldnestmax=1
-set foldlevel=1
 set foldmethod=syntax
+set nofoldenable
+set foldlevel=1
+set foldnestmax=1
 
 set tabstop=4
 set shiftwidth=4
