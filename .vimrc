@@ -168,8 +168,8 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 " Block folding settings
 set foldmethod=syntax
 set nofoldenable
-set foldlevel=1
-set foldnestmax=1
+set foldlevel=2
+set foldnestmax=2
 
 set tabstop=4
 set shiftwidth=4
